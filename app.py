@@ -39,9 +39,20 @@ def pmcc(arr1=[], arr2=[]):  # deelt de som van Zx*Zy door n
     return zz(arr1, arr2) / len(arr1)
 
 
-print(pmcc(x, y))  # print de correlatie coefficient naar het scherm
+r = pmcc(x, y)
+print(r)  # print de correlatie coefficient naar het scherm
+
+sdX, xmean = sd(x)
+sdY, ymean = sd(y)
+rc = r * (sdY / sdX)
+yinterc = ymean - (rc * xmean)
+
+
+def line(x):
+    return rc * x + yinterc
+
 
 # een plot van de coordinaten
 plt.plot(x, y, "ro")
-plt.axis([100, 106, 350, 650])
+plt.plot([100, 106], [line(100), line(106)])
 plt.show()
