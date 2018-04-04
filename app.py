@@ -1,5 +1,5 @@
-import numpy as np
-import matplotlib.pyplot as plt
+import numpy as np  # voor wiskundige aspecten (zoals een wortel)
+import matplotlib.pyplot as plt  # voor het plotten van de coordinaten
 
 # de x en y waarden voor de coordinaten
 x = [100.25, 100.31, 100.34, 100.66, 100.76, 100.88, 101.02, 101.09, 101.15, 101.5, 101.45, 102.86, 103.18, 103.29, 103.36, 103.29, 104.06, 104.44, 104.45, 104.53, 104.94, 104.93, 105.31, 105.64, 105.69]
@@ -42,13 +42,16 @@ def pmcc(arr1=[], arr2=[]):  # deelt de som van Zx*Zy door n
     return zz(arr1, arr2) / len(arr1)
 
 
-def line(x):
+def line(x):  # functie voor y-coordinaat bij invoeren van x-coordinaat
     return rc * x + yinterc
 
 
+# de uiteindelijke correlatie coefficient
 r = pmcc(x, y)
 print(r)  # print de correlatie coefficient naar het scherm
 
+
+# rc en punt waar y=0
 sdX, xmean = sd(x)
 sdY, ymean = sd(y)
 rc = r * (sdY / sdX)
