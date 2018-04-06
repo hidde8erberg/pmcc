@@ -59,6 +59,11 @@ yinterc = ymean - (rc * xmean)
 
 
 # een plot van de coordinaten
+plot = plt.figure()
 plt.plot(x, y, "ro")
 plt.plot([100, 106], [line(100), line(106)])
+plt.title("pmcc = " + str(r))
 plt.show()
+
+plot.savefig("correlationGraph.pdf")  # slaat grafiek op
+
